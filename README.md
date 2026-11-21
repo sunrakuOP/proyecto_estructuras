@@ -22,7 +22,7 @@ cmake --build build
 include/            declaraciones (.hpp)
   modelo/           Enums, Paciente, Medico
   hospital/         Cama, Sala
-  estructuras/      RegistroPacientes (tabla hash), PilaAtendidos (pila)
+  estructuras/      RegistroPacientes (tabla hash), PilaAtendidos (pila), ColaPrioridadPacientes (cola de prioridad)
 src/                implementaciones (.cpp), misma organización que include/
 main.cpp
 CMakeLists.txt
@@ -47,12 +47,11 @@ Los `#include` se escriben con la carpeta, por ejemplo `#include "modelo/Pacient
 | `Medico` | jornada de hasta 50 turnos e historial de jornadas |
 | `RegistroPacientes` | tabla hash de pacientes por cédula |
 | `PilaAtendidos` | pila (LIFO) de los últimos pacientes dados de alta |
+| `ColaPrioridadPacientes` | cola de prioridad por gravedad (FIFO dentro del mismo nivel); también envejece a los pacientes y saca a los perdidos |
 
 ## Pendiente
 
-- `ColaPrioridadPacientes` (cola de prioridad por gravedad): ya está escrita en `largo/urgencias.cpp`, pero
-  todavía no está separada en `include/` y `src/`, así que el programa compilado con CMake aún no la incluye.
-- Ciclo de turnos con las acciones del médico, métricas y auditoría final.
+Ciclo de turnos con las acciones del médico, métricas y auditoría final.
 
 ## Trabajo en equipo
 

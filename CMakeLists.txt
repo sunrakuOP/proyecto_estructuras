@@ -22,6 +22,7 @@ add_executable(urgencias
     src/hospital/Sala.cpp
     src/estructuras/RegistroPacientes.cpp
     src/estructuras/PilaAtendidos.cpp
+    src/estructuras/ColaPrioridadPacientes.cpp
 )
 
 # permite escribir #include "modelo/Paciente.hpp" desde cualquier archivo

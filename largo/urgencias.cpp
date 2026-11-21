@@ -22,6 +22,7 @@ enum class Gravedad {
     consulta
 };
 
+
 enum class EstadoPaciente {
     espera, 
     cama,
@@ -29,11 +30,13 @@ enum class EstadoPaciente {
     perdido
 };
 
+
 enum class EstadoCama {
     vacia,
     ocupada,
     mantenimiento
 };
+
 
 // forma de mostrar EstadoPaciente y Gravedad
 std::string aTexto(EstadoPaciente estado) {
@@ -45,6 +48,7 @@ std::string aTexto(EstadoPaciente estado) {
     }
 return "desconocido"; 
 }
+
 
 int aNumero(Gravedad g) {
     switch (g) {
@@ -716,6 +720,10 @@ public:
         return contador;
     }
 };
+
+
+
+
 
 int main() {
 
