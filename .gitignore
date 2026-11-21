@@ -1,0 +1,18 @@
+# carpetas de compilacion
+build/
+cmake-build-*/
+
+# binarios y objetos
+*.o
+*.out
+*.exe
+*.dSYM/
+urgencias
+
+# generado por CMake si se configura fuera de build/
+compile_commands.json
+
+# editor / sistema
+.DS_Store
+.vscode/
+.idea/
