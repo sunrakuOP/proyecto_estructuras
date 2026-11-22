@@ -3,8 +3,7 @@
 Proyecto final de Estructuras de Datos (2026-2). Simulador en C++ (POO) que se ejecuta en modo texto:
 un médico recorre una sala de 10 camas y atiende pacientes que llegan según su gravedad.
 
-**Estado:** en desarrollo. Por ahora `main.cpp` está vacío: las clases están hechas, falta el ciclo de turnos
-que las usa, así que al ejecutar el programa todavía no se imprime nada.
+**Estado:** funcional. Están implementadas todas las clases, el ciclo interactivo de turnos (Urgencias::iniciar()), las alertas de riesgo y el reporte final con métricas y auditoría.
 
 ## Cómo compilar
 
@@ -21,12 +20,12 @@ cmake --build build
 ```
 include/            declaraciones (.hpp)
   modelo/           Enums, Paciente, Medico
-  hospital/         Cama, Sala
+  hospital/         Cama, Sala, Urgencias
   estructuras/      RegistroPacientes (tabla hash), PilaAtendidos (pila), ColaPrioridadPacientes (cola de prioridad)
 src/                implementaciones (.cpp), misma organización que include/
 main.cpp
 CMakeLists.txt
-largo/urgencias.cpp archivo único de trabajo con todas las clases juntas
+largo/largo.cpp archivo único de trabajo con todas las clases juntas
 ```
 
 Los `#include` se escriben con la carpeta, por ejemplo `#include "modelo/Paciente.hpp"`.
@@ -48,10 +47,8 @@ Los `#include` se escriben con la carpeta, por ejemplo `#include "modelo/Pacient
 | `RegistroPacientes` | tabla hash de pacientes por cédula |
 | `PilaAtendidos` | pila (LIFO) de los últimos pacientes dados de alta |
 | `ColaPrioridadPacientes` | cola de prioridad por gravedad (FIFO dentro del mismo nivel); también envejece a los pacientes y saca a los perdidos |
+| 'Urgencias' | controlador central del simulador: gestiona el ciclo de turnos, el ingreso de pacientes, las acciones del médico (A, D, R, T, X, U, C, O, E), el estado durante cada turno y el reporte final con métricas y auditoría |
 
-## Pendiente
-
-Ciclo de turnos con las acciones del médico, métricas y auditoría final.
 
 ## Trabajo en equipo
 
