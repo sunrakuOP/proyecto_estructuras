@@ -25,6 +25,8 @@ public:
     int camasDesocupadas() const;
 
     void mostrar() const;
+
+    void reiniciarPosicionM();
 };
 
 #endif

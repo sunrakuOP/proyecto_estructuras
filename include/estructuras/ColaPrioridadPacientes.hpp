@@ -45,6 +45,12 @@ public:
     std::list<Paciente*> envejecer();
 
     int cantidadPorGravedad(Gravedad g) const;
+
+    int totalPacientesCola() const;
+
+    int sumaEsperaPorGravedad(Gravedad g) const;
+    
+    bool hayAlertaEnGravedad() const;
 };
 
 #endif

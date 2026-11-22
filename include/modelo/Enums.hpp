@@ -26,5 +26,5 @@ enum class EstadoCama {
 // forma de mostrar EstadoPaciente y Gravedad
 std::string aTexto(EstadoPaciente estado);
 int aNumero(Gravedad g);
-
+std::string aTexto(Gravedad gravedad); // Para pasar de numero a texto la gravedad
 #endif

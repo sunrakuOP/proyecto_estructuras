@@ -109,3 +109,7 @@ void Sala::mostrar() const {
     }
     std::cout<<std::endl;
 }
+
+void Sala::reiniciarPosicionM(){
+    camaActual = cabeza;
+}

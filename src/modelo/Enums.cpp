@@ -20,3 +20,14 @@ int aNumero(Gravedad g) {
     }
 return -1;
 }
+
+std::string aTexto(Gravedad gravedad) {
+    switch (gravedad) {
+        case Gravedad::critico:  return "CRITICO";
+        case Gravedad::severo:   return "SEVERO";
+        case Gravedad::moderado: return "MODERADO";
+        case Gravedad::leve:     return "LEVE";
+        case Gravedad::consulta: return "CONSULTA";
+        default:                 return "DESCONOCIDO";
+    }
+}

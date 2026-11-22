@@ -61,3 +61,26 @@ int ColaPrioridadPacientes::cantidadPorGravedad(Gravedad g) const {
     }
     return contador;
 }
+
+int ColaPrioridadPacientes::totalPacientesCola() const {
+    return colaPrioridad.size();
+}
+
+int ColaPrioridadPacientes::sumaEsperaPorGravedad(Gravedad g) const{
+    int suma = 0;
+    for (Paciente* p : colaPrioridad){
+        if (p->getGravedad() == g){
+            suma = suma + p->getTiempoEspera();
+        }
+    }
+    return suma;
+}
+    
+bool ColaPrioridadPacientes::hayAlertaEnGravedad() const{
+    for (Paciente* p : colaPrioridad){
+        if (p->getGravedad() == Gravedad::critico && p->getContadorRiesgo() >= 5){
+            return true;
+        }
+    }
+    return false;
+}
