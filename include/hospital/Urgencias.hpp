@@ -15,7 +15,7 @@ class Urgencias { // Clase general que controla el simulador
     RegistroPacientes registro;
     ColaPrioridadPacientes cola;
     PilaAtendidos pila;
-    std::list<Medico*> medicos;
+    std::list<Medico> medicos;
     Medico* medicoActual;
     int turnoGlobal;
     // Metodos
@@ -27,7 +27,6 @@ class Urgencias { // Clase general que controla el simulador
 
     public:
     Urgencias();
-    ~Urgencias();
     void iniciar();
 };
 

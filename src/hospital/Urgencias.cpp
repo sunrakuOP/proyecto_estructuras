@@ -14,20 +14,14 @@ Urgencias::Urgencias(){ // Contructor
     turnoGlobal = 1;
 }
 
-Urgencias::~Urgencias(){ // Destructor
-    for (Medico* m : medicos) {
-        delete m;
-    }
-}
 Medico* Urgencias::buscarOCrearMedico(const std::string& nombre){
-    for (Medico* m : medicos){
-        if (m->getNombreMedico() == nombre){ // Busca al medico con el nombre
-            return m;
+    for (Medico& m : medicos){
+        if (m.getNombreMedico() == nombre){ // Busca al medico con el nombre
+            return &m;
         }
     } // Si no lo encuentra lo crea y agrega a la lista de medicos
-    Medico* nuevoMedico = new Medico(nombre);
-    medicos.push_back(nuevoMedico);
-    return nuevoMedico;
+    medicos.push_back(Medico(nombre));
+    return &medicos.back(); // los nodos de std::list no se mueven, asi que medicoActual sigue valido al agregar otros medicos
 }
 
 void Urgencias::cambiarMedico(){
@@ -233,8 +227,8 @@ void Urgencias::mostrarReporteFinal() const{
 
     // Historial de jornadas y turnos por medico
     std::cout << "\n--- HISTORIAL DE MEDICOS ---\n";
-    for (const Medico* m : medicos) {
-        m->mostrar();
+    for (const Medico& m : medicos) {
+        m.mostrar();
     }
 
     // Auditoria de pacientes perdidos
