@@ -2,6 +2,7 @@
 #include <iostream>
 
 std::string Medico::getNombreMedico() const { return nombreMedico; }
+int Medico::turnosEnJornada() const { return turnosJornadaActual; }
 
 bool Medico::iniciarJornada() {
     if(enJornada) {

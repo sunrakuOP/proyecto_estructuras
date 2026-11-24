@@ -20,6 +20,9 @@ private:
     static const int minutosPorTurno = 5;
     static const int limiteRiesgo = 6;
 public:
+    // contador de riesgo a partir del cual se muestra la alerta (el paciente se pierde al superar limiteRiesgo)
+    static const int umbralAlerta = 5;
+
     Paciente(const std::string& n, const std::string& c, Gravedad y, const std::string& co, int tl):
         nombre(n), cedula(c), x(y), condicion(co), turnoLlegada(tl), tiempoEspera(0), contadorRiesgo(0),
         estadoP(EstadoPaciente::espera), nombreMedico(""), turnoCierre(0) {}

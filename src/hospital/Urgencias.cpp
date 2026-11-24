@@ -12,10 +12,6 @@
 Urgencias::Urgencias(){ // Contructor
     medicoActual = nullptr; // Aun no se ha asignado ningun medico
     turnoGlobal = 1;
-    turnoJornada = 1;
-    totalPacientesRecibidos = 0;
-    totalDadosDeAlta = 0;
-    sumaEsperaRecibidos = 0;
 }
 
 Urgencias::~Urgencias(){ // Destructor
@@ -41,12 +37,11 @@ void Urgencias::cambiarMedico(){
         std::cout << "\nJornada de " << medicoActual->getNombreMedico() << " finalizada.\n";
     }
     std::string nombreNuevo;
-    std::cout << "\nIngrese el nombre del nuevo medico: ";
+    std::cout << "\nIngrese el apellido del nuevo medico: ";
     std::getline(std::cin >> std::ws, nombreNuevo);
 
     medicoActual = buscarOCrearMedico(nombreNuevo);
     medicoActual->iniciarJornada();
-    turnoJornada = 1;
     salaUrgencias.reiniciarPosicionM(); // Para que inicie en la cama #1
     std::cout << "Bienvenido/a, " << medicoActual->getNombreMedico() << ". Inicia nueva jornada (Turno 1/50).\n";
 }
@@ -58,7 +53,11 @@ void Urgencias::mostrarEstadoTurno() const {
     } else {
         std::cout<< "Dr. " << medicoActual->getNombreMedico() << "  |  ";
     }
-    std::cout<< "Turno: " << turnoJornada << "/50" << "  |  ";
+    int turnoActual = 1; // numero del turno que se esta jugando: los turnos ya registrados del medico + 1
+    if (medicoActual != nullptr) {
+        turnoActual = medicoActual->turnosEnJornada() + 1;
+    }
+    std::cout<< "Turno: " << turnoActual << "/50" << "  |  ";
     if (cola.estaVacia()){
         std::cout<< "Sin pacientes en cola." << std::endl;
     } else {
@@ -427,11 +426,10 @@ void Urgencias::iniciar() {
                 std::cout << "[ALERTA CRITICA] El paciente " << p->getNombre()
                           << " (CC: " << p->getCedula() << ") supero el limite de espera y se ha perdido.\n";
             }
-            turnoJornada++;
             turnoGlobal++;
 
             // Verificar si el médico completó sus 50 turnos de jornada
-            if (medicoActual->jornadaCompleta() || turnoJornada > 50) {
+            if (medicoActual->jornadaCompleta()) {
                 std::cout << "\n========================================\n";
                 std::cout << medicoActual->getNombreMedico() << " ha completado sus 50 turnos de jornada.\n";
                 std::cout << "========================================\n";

@@ -17,8 +17,7 @@ class Urgencias { // Clase general que controla el simulador
     PilaAtendidos pila;
     std::list<Medico*> medicos;
     Medico* medicoActual;
-    int turnoGlobal, turnoJornada;
-    int totalPacientesRecibidos, totalDadosDeAlta, sumaEsperaRecibidos;
+    int turnoGlobal;
     // Metodos
     void mostrarEstadoTurno()const; // Imprime NombreDoctor | Turno: x/50 | Pacientes en cola: y
     void mostrarReporteFinal()const;

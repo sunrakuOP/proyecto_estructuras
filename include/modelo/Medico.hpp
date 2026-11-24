@@ -18,6 +18,7 @@ public:
     Medico(const std::string& n): nombreMedico(n), turnosJornadaActual(0), enJornada(false) {}
 
     std::string getNombreMedico() const;
+    int turnosEnJornada() const;
 
     bool iniciarJornada();
     bool registrarTurno();

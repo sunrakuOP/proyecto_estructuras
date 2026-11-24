@@ -78,7 +78,7 @@ int ColaPrioridadPacientes::sumaEsperaPorGravedad(Gravedad g) const{
     
 bool ColaPrioridadPacientes::hayAlertaEnGravedad() const{
     for (Paciente* p : colaPrioridad){
-        if (p->getGravedad() == Gravedad::critico && p->getContadorRiesgo() >= 5){
+        if (p->getGravedad() == Gravedad::critico && p->getContadorRiesgo() >= Paciente::umbralAlerta){
             return true;
         }
     }
