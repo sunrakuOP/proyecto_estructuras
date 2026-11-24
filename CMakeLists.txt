@@ -20,6 +20,7 @@ add_executable(urgencias
     src/modelo/Medico.cpp
     src/hospital/Cama.cpp
     src/hospital/Sala.cpp
+    src/hospital/Urgencias.cpp
     src/estructuras/RegistroPacientes.cpp
     src/estructuras/PilaAtendidos.cpp
     src/estructuras/ColaPrioridadPacientes.cpp
